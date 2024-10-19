@@ -5,6 +5,8 @@ __pycache__/
 .DS_Store
 media_archivos_locales
 backups
+base-de-datos.sqlite
+.env
 
 
 # C extensions
