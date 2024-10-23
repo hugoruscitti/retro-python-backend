@@ -10,7 +10,7 @@ ROOT = './static'
 
 urlpatterns = [
     path('', views.home, name='home'),
-    #path('proyecto/subir', csrf_exempt(subir), name='proyecto.subir'),
-    #path('proyecto/obtener/<proyecto_id>', csrf_exempt(obtener), name='proyecto.obtener'),
+    path('subir', csrf_exempt(views.subir), name='subir'),
+    path('obtener/<hash>', views.obtener, name='obtener'),
     path('admin/', admin.site.urls),
 ] + static("proyecto", document_root=ROOT)

@@ -17,6 +17,7 @@ comandos:
 	@echo "    ${G}crear-migraciones${N}         Genera las migraciones."
 	@echo "    ${G}migrar${N}                    Ejecuta las migraciones."
 	@echo "    ${G}ejecutar${N}                  Ejecuta el servidor en modo desarrollo."
+	@echo "    ${G}test${N}                      Ejecuta los tests."
 	@echo "    ${G}deploy${N}                    Realiza un deploy de la aplicación."
 	@echo ""
 	@echo ""
@@ -35,6 +36,9 @@ migrar:
 
 ejecutar:
 	dotenv run -- python manage.py runserver
+
+test:
+	dotenv run -- python manage.py test
 
 deploy:
 	@git push dokku master
