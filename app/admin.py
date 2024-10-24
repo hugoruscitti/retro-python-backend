@@ -8,6 +8,7 @@ class ProyectoAdmin(admin.ModelAdmin):
     list_display = (
             'id', 
             'screenshot_tag',
+            'textura_tag',
             'hash',
             'url', 
     )
@@ -22,5 +23,8 @@ class ProyectoAdmin(admin.ModelAdmin):
 
     def screenshot_tag(self, obj):
         return mark_safe(f"<img src=\"{obj.screenshot}\" width=\"160\">")
+
+    def textura_tag(self, obj):
+        return mark_safe(f"<img src=\"{obj.textura}\" width=\"160\">")
 
 admin.site.register(Proyecto, ProyectoAdmin)
