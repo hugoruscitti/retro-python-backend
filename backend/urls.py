@@ -12,5 +12,6 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('subir', csrf_exempt(views.subir), name='subir'),
     path('obtener/<hash>', views.obtener, name='obtener'),
+    path('ejemplos', views.ejemplos, name='ejemplos'),
     path('admin/', admin.site.urls),
 ] + static("proyecto", document_root=ROOT)

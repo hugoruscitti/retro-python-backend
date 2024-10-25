@@ -28,3 +28,19 @@ class TestApi(TestCase):
         resultado = response.json()
         self.assertEqual(resultado['codigo'], 'circulo(0, 0, 10, 10, 3, True)')
 
+    def test_puede_solicitar_la_lista_de_ejemplos(self):
+        data = {
+            "screenshot": "base64...",
+            "version": "0.0.1",
+            "codigo": "circulo(0, 0, 10, 10, 3, True)",
+            "textura": "base64...",
+        }
+
+        response = self.client.post("/subir", json.dumps(data), content_type='application/json')
+
+        response = self.client.get(f"/ejemplos")
+
+        self.assertEqual(response.status_code, 200)
+        resultado = response.json()
+        self.assertEqual(len(resultado['ejemplos']), 1)
+

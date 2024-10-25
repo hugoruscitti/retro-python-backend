@@ -30,3 +30,10 @@ def obtener(request, hash):
         "textura": proyecto.textura,
         "codigo": proyecto.codigo,
     })
+
+def ejemplos(request):
+    proyectos = Proyecto.objects.values("hash", "screenshot").order_by("fecha")
+
+    return JsonResponse({
+        "ejemplos": list(proyectos)
+    })
